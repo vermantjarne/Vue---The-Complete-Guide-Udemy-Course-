@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <!-- Methods can be called through `function` or `function()` -->
+      <!-- `function()` allows parameters to be passed -->
+      <button v-on:click="add(5)">Add 5</button>
+			<!-- Only listen to a right-click -->
+      <button v-on:click.right="subtract(4)">Subtract 4</button>
+      <p v-once>Starting Counter: {{ counter }}</p>
+			<p>Result: {{ counter }}</p>
+      <!-- `v-on` can listen to any JavaScript event, and automatically passes it along -->
+			<!-- Here, it listens to the input of text and the press of the enter key -->
+      <input type="text" v-on:input="updateName($event, 'Vermant')" v-on:keyup.enter="confirmName()" />
+      <p>Your Name: {{ confirmedName }}</p>
+      <!-- When a form is submitted, the default behavior is prevented and `submitForm()` is ran -->
+      <form v-on:submit.prevent="submitForm">
+        <input type="text" />
+        <button>Sign Up</button>
+      </form>
+    </section>
+  </body>
+</html>
