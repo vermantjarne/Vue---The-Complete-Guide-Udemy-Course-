@@ -1,2 +1,2 @@
-# Vue---The-Complete-Guide-Udemy-Course-
-The complete package of all projects from the Udemy course "Vue - The Complete Guide".
+# Vue - The Complete Guide (Udemy Course)
+This repository contains every project created for the Udemy course [Vue - The Complete Guide](https://www.udemy.com/course/vuejs-2-the-complete-guide) by [Maximilian Schwarzmüller](https://www.udemy.com/user/maximilian-schwarzmuller/). This repository is created with the intention of being able to revisit barebone projects and concepts of the Vue.js framework.
