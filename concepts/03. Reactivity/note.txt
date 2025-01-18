@@ -1,0 +1,11 @@
+Methods are used for event binding or data binding.
+With data binding, every method is executed for every rerender of the component.
+Us for events or data that really needs to be reevaluated all the time.
+
+Computed properties are used with data binding.
+They are only re-evaluated if one of the used values is changed
+They are used for data that depends on other data.
+
+Watchers are not used directly in the template.
+They allow running any code in reaction to some changed data (for example, an HTTP request)
+These should be used for any non-data update that should be made.
