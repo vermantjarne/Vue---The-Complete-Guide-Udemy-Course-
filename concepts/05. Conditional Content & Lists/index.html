@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goals">
+      <h2>My course goals</h2>
+      <input type="text" v-model="enteredGoalValue" />
+      <button @click="addGoal">Add Goal</button>
+			<!-- This paragraph should be hidden if there is at least 1 goal in the list of goals -->
+			<!-- v-if is a Vue directive, which can do the same as any other Vue directive (refer to data, etc) -->
+			<!-- Any expression can also be used for it -->
+      <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
+			<!-- This unordered list should be hidden if there are no goals in the list of goals -->
+			<!-- Similar to regular conditional code, it is possible to add an else-if statement through Vue -->
+			<!-- This has to directly follow another element that uses v-if -->
+      <ul v-else-if="goals.length > 0">
+				<!-- v-for allows us to loop through a property, outputting the same element repeatedly -->
+				<!-- Its generic syntax is '<new-variable> in <array>' -->
+				<!-- When the list changes, this loop is checked again to ensure every element is added -->
+				<!-- When a goal is added, the existing list items are not re-rendered either -->
+        <!-- <li v-for="goal in goals">{{ goal }}</li> -->
+				<!-- An index can also be used with the following notation -->
+				<li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">
+					<p>{{index}} - {{ goal }}</p>
+					<!-- Clicking in this input field allos the click listener of a parent event to be ignored -->
+					<!-- However, when entering text into the first goal's input field and then removing it, it will be kept in the input field for the second goal -->
+					<!-- This behavior is undesired, as it creates a mixture between the different goals and makes it impossible to track their input values -->
+					<!-- The key attribute is added by Vue and is optional when using v-for, but highly recommended so no unexpected bahavior occurs -->
+					<!-- The index does not keep track of the goal. It is not unique per goal, as it just depends on which item is in which position in the list -->
+					<!-- In this case, goal works, however a unique id is more realistic and preferred -->
+					<!-- This happens because Vue automatically reuses elements, rather than remaking them, when a list item is removed -->
+					<input type="text" @click.stop >
+				</li>
+      </ul>
+			<!-- Vue also allows an else statement to be used with v-else -->
+			<!-- This has to directly follow another element that uses v-if or v-else-if -->
+			<p v-else>This paragraph is never shown, as the list length can not be negative.</p>
+			<!-- v-show can be used as an alternative to v-if, but does not work with v-else-if or v-else -->
+			<!-- Its behavior is slightly different, as it hides elements using 'display: none' (CSS) -->
+			<!-- This can save performance, but elements are hidden -->
+			<!-- This is only recommended if there is an element that changes its visibility frequently -->
+			<p v-show="goals.length === 0">Adding a goal will add it to the list automatically!</p>
+			<!-- <ul> -->
+				<!-- v-for can also loop through objects -->
+				<!-- <li v-for="value in {name: 'Max', age: 31}">{{ value }}</li> -->
+				<!-- Both the key and value can be retrieved if necessary -->
+				<!-- <li v-for="(value, key) in {name: 'Max', age: 31}">{{ key }} - {{ value }}</li> -->
+				<!-- The index can also be retrieved if necessary -->
+				<!-- <li v-for="(value, key, index) in {name: 'Max', age: 31}">{{index}} - {{ key }} - {{ value }}</li> -->
+			<!-- </ul> -->
+			<!-- <ul> -->
+				<!-- v-for can also loop through numbers. This will iterate through this from 1-10 -->
+				<!-- <li v-for="num in 10">{{ num }}</li> -->
+			<!-- </ul> -->
+    </section>
+  </body>
+</html>
