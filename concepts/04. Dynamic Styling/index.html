@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Dynamic Styling</h1>
+    </header>
+    <section id="styling">
+			<!-- 'style' can be bound to a certain property -->
+			<!-- A special syntax can be used for 'style' and 'class', allowing it to accept objects -->
+			<!-- Inline styles like this are not preferred -->
+      <!-- <div class="demo" :style="{borderColor: boxASelected ? 'red': '#ccc'}" @click="boxSelected('A')"></div> -->
+			<!-- Binding 'class' makes it require a string -->
+			<!-- This is still inline styling, and is hard to read -->
+      <!-- <div :class="boxASelected ? 'demo active' : 'demo'" @click="boxSelected('A')"></div> -->
+			<!-- If bound, an object can also be passed to the 'class' attribute -->
+			<!-- This is a lot more readable and maintainable -->
+			<!-- With a lot of classes, having to set them to true is still harder to read -->
+      <!-- <div :class="{demo: true, active: boxASelected}" @click="boxSelected('A')"></div> -->
+			<!-- Instead, the hardcoded 'class' attribute can be added alongside the bound 'class' attribute -->
+			<!-- Vue merges both of the attributes together -->
+      <div class="demo" :class="{active: boxASelected}" @click="boxSelected('A')"></div>
+			<!-- Here, a computed property is also referenced -->
+			<!-- For dynamic styling, this is not a must. It's recommended for complex code -->
+      <div class="demo" :class="boxBClasses"  @click="boxSelected('B')"></div>
+			<!-- Here, an array is used. This also works, where each element is either an object or a string -->
+      <div :class="['demo', {active: boxCSelected}]"  @click="boxSelected('C')"></div>
+    </section>
+  </body>
+</html>
