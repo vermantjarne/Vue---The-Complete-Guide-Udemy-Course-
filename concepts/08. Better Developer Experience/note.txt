@@ -1,0 +1,7 @@
+Currently, pages are required to be reloaded whenever any change is made.
+Reloading the page also resets the page to the initial state, causing us to lose time.
+The auto-completion of the IDE is very limited as well.
+We can also only work in just one file or we need to handle multiple files through multiple script imports.
+
+In the vue-test-app, which follows the new setup, a development server is used.
+These contain .Vue files, which contain a separate template, script and style section.
