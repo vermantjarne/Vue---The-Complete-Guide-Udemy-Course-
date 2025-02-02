@@ -1,0 +1,30 @@
+Vue only updates the specific elements that are adjusted.
+The Vue instance stores the data, computed properties, methods, etc.
+Meanwhile, the browser DOM only contains the Vue-controlled template that is rendered in the DOM.
+For example, an @click value on a button is meant for the Vue instance, not for the browser DOM, thus it is not shown in the template.
+All changes are reflected, though Vue does not re-render everything.
+
+A possible way in which this could work is to compare the outdated DOM values with the new ones, to update accordingly.
+This is NOT what it does, as it is performance-intensive to read through the entire DOM every time.
+
+Instead, Vue uses the concept of a virtual DOM.
+This is a JavaScript-based DOM that only exists in memory.
+It compares the new virtual DOM with the old virtual DOM, then pushes those changes to the actual DOM.
+This is only a simplified version of the method Vue uses.
+
+Vue instances have a lifecycle, following certain steps.
+createApp({...})
+-> beforeCreate()
+-> create()
+(-> Compile template)
+-> beforeMount()
+-> mounted()
+-> Mounted Vue instance
+
+-> [1] Data Changed
+-> beforeUpdate()
+-> updated()
+
+-> [2] Instance Unmounted
+-> beforeUnmount()
+-> unmounted()
