@@ -1,0 +1,4 @@
+Vue has a style guide, suggesting the preferred naming convention for components, elements, etc.
+This is useful when working in a team or wanting to follow the officially suggested naming convention.
+
+Creating subfolders for various components is also recommended for readability, grouping components in a logical manner.
