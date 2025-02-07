@@ -1,0 +1,7 @@
+To make sure the browser can understand the code, it is necessary to build the project.
+This can be done easily by making use of scripts.
+
+In the case of this project (and any Vue project made as seen in the course), it contains a 'build' script, to compile it into the dist folder.
+
+To host the web application, we make use of Firebase.
+This means the firebase-tools module is also required to be installed.
