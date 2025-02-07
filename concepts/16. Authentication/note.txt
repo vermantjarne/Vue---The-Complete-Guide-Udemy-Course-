@@ -1,0 +1,15 @@
+Part of this course takes places in the Firebase console, including writing rules.
+The rules written in the Realtime Database have been copied to this file.
+
+{
+  "rules": {
+    "coaches": {
+      ".read": true,
+      ".write": "auth != null",
+    },
+    "requests": {
+      ".read": "auth != null",
+      ".write": true,
+    },
+  }
+}
