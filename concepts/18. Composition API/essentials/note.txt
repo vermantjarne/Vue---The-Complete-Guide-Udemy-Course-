@@ -1,0 +1,18 @@
+So far, we have used the "Options API".
+The "Composition API" is a different approach.
+This means that the previously learned methods are not considered obsolete, and may be preferred in certain scenarios.
+
+The main reason for the Composition API existing is due to the following issues:
+- Code that belongs together logically may be split across multiple options (data, computed, methods, etc).
+  This can prove to be annoying for managing larger components
+- Re-using logic across components is an inconvenience, as multiple components may use similar logic
+
+The Composition API uses the setup() object, combining the data(), methods, computed and watch.
+The other options do not change in their definitions.
+
+
+The lifecycle hooks have changed for the Composition API:
+- The beforeCreate and created lifecycle hooks are no longer necessary, as setup replaces these hooks
+- beforeMount and mounted are replaced with onBeforeMount and onMounted
+- beforeUpdate and updated are replaced with onBeforeUpdate and onUpdated
+- beforeUnmount and unmounted are replaced with onBeforeUnmount and onUnmounted
