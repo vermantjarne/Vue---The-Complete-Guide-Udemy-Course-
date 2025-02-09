@@ -1,0 +1,3 @@
+Hooks and composables are both terms for functions that are used inside of the setup() function.
+These are useful for the reusability of code written within the setup() function of the Composition API.
+Compared to mixins, hooks make it a lot easier to know which pieces of code are being provided by which hook.

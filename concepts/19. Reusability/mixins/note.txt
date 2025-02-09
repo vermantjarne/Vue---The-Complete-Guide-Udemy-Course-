@@ -1,0 +1,7 @@
+Mixins can allow certain pieces of code to be shared between different components.
+This may be important when components, data, methods, etc are shared by various components.
+Mixins are especially useful with a functionality like searching, which is similar across multiple components.
+
+A drawback to mixins is that it makes it more complicated to understand code, as the logic is spread out further.
+This can be a hurdle for projects where multiple developers are working on components, and multiple mixins are used for a component.
+The Composition API makes it more convenient to work on large projects, and provides a solution to this issue.
